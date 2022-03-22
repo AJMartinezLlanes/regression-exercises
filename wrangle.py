@@ -2,7 +2,8 @@ import pandas as pd
 import numpy as np
 import os
 from env import get_db_url
-# turn off pink warning boxes
+from sklearn.impute import SimpleImputer
+from sklearn.model_selection import train_test_split    
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -39,6 +40,10 @@ def clean_zillow_data(df):
 
 
 def wrangle_zillow():
+    
+    df = get_zillow_data()
+    df = clean_zillow_data(df)
+
     # train/validate/test split
     train_validate, test = train_test_split(df, test_size=.2, random_state=123)
     train, validate = train_test_split(train_validate, test_size=.3, random_state=123)
