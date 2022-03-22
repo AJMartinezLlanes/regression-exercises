@@ -15,7 +15,7 @@ warnings.filterwarnings('ignore')
 # plot_residuals(y, yhat): creates a residual plot
 def plot_residuals(actual, predictions):
     residuals = actual - predictions
-    plt.hlines(0, actual.min(), actual.max(), ls=':')
+    plt.hlines(0, actual.min(), actual.max(),color='r', ls=':')
     plt.scatter(actual, residuals)
     plt.ylabel('residual ($y - \hat{y}$)')
     plt.xlabel('actual value ($y$)')
